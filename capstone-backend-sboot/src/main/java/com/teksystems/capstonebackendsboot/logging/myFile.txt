@@ -1,0 +1,29 @@
+
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+--------------------------------------------------------------------------------------------------------
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+--------------------------------------------------------------------------------------------------------
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+--------------------------------------------------------------------------------------------------------
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+--------------------------------------------------------------------------------------------------------
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+--------------------------------------------------------------------------------------------------------
+Bob does tacos
+Wed Apr 20 00:00:00 CDT 2022
+Reservation for: McKenzie at 09:00:00 for 3
+Reservation for: McKenzie at 12:00:00 for 5
+--------------------------------------------------------------------------------------------------------
