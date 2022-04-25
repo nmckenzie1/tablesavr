@@ -197,17 +197,23 @@ Form
   border: #222;
   border-style: solid;
 }
-.reservation h2 {
-  margin-bottom: 2rem;
-  border: #222;
-  border-style: solid;
-}
-h2 {
+.table-form h2 {
   margin-bottom: 2rem;
   border: #222;
   border-style: solid;
   text-align: center;
 }
+.reservation h2 {
+  margin-bottom: 2rem;
+  border: #222;
+  border-style: solid;
+}
+/* h2 {
+  margin-bottom: 2rem;
+  border: #222;
+  border-style: solid;
+  text-align: center;
+} */
 .form-control {
   margin-bottom: 2rem;
 }

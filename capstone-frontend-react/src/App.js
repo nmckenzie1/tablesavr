@@ -1,4 +1,3 @@
-import { Switch } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
@@ -81,8 +80,16 @@ function App() {
         ) : (
           <Route path="/reservation/:resid" element={<Login />} />
         )}
-        <Route path="/myrestaurants" element={<MyRestaurants />} />
-        <Route path="/restaurant/owner:rid" element={<ViewReservations />} />
+        {isLoggedIn ? (
+          <Route path="/myrestaurants" element={<MyRestaurants />} />
+        ) : (
+          <Route path="/myrestaurants" element={<Login />} />
+        )}
+        {isLoggedIn ? (
+          <Route path="/restaurant/owner:rid" element={<ViewReservations />} />
+        ) : (
+          <Route path="/restaurant/owner:rid" element={<ViewReservations />} />
+        )}
       </Routes>
     </BrowserRouter>
   );

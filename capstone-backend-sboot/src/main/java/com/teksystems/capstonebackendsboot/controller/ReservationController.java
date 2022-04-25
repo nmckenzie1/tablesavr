@@ -61,7 +61,7 @@ public class ReservationController {
 
     }
     @GetMapping("/reservation")
-    public ResponseEntity<Boolean>createReservation(@RequestParam long id,@RequestParam int amount, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,@RequestParam String time,@RequestParam long uid) {
+    public ResponseEntity<String>createReservation(@RequestParam long id,@RequestParam int amount, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,@RequestParam String time,@RequestParam long uid) {
         Optional<List<TableTop>> tableTopList = tabletopRepository.getTableTopsByRestaurant_RestaurantIDAndMaxGuestsGreaterThanEqual(id, amount);
         List<TableTop> newlist = tableTopList.get();
 
@@ -84,9 +84,11 @@ public class ReservationController {
             reservation.setLastName(user.getLastName());
             reservationRepository.save(reservation);
             log.info("Reservation" + reservation+" created!");
-            return new ResponseEntity<>(true, HttpStatus.OK);
+            String success = "Reservation Created, thanks " + user.getFirstName()+" !";
+            return new ResponseEntity<>(success, HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>(false, HttpStatus.NOT_FOUND);
+            String nosuccess= "No tables available at this time!";
+            return new ResponseEntity<>(nosuccess, HttpStatus.OK);
         }
     }
     @DeleteMapping(value = "/deleteres")

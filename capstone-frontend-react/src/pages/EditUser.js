@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import AuthService from "../services/auth.service";
 import DataService from "../services/data.service";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 const EditUser = () => {
   const currentuserid = AuthService.getCurrentUser();
   const [user, setUser] = useState({
@@ -26,12 +27,18 @@ const EditUser = () => {
       user.lastName,
       user.username
     );
-    console.log(data);
+
+    Swal.fire({
+      text: "Profile updated",
+      icon: "success",
+      iconColor: "black",
+      toast: true,
+      confirmButtonColor: "#062f4f",
+    });
   };
   useEffect(() => {
     async function getUserInfo() {
       DataService.getUserInfo(currentuserid).then((response) => {
-        console.log(response.data);
         setUser({
           firstName: response.data.firstName,
           lastName: response.data.lastName,

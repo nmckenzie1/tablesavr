@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
@@ -25,10 +26,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long userID;
     @Email( message = "Please enter a valid e-mail")
+    @NotEmpty(message = "Please enter a valid e-mail")
     @Column(length = 50, nullable = false, unique = true)
     String username;
+    @NotEmpty(message = "Please enter a valid First Name")
     @Column(length = 50, nullable = false)
     String firstName;
+    @NotEmpty(message = "Please enter a valid Last Name")
     @Column(length = 50, nullable = false)
     String lastName;
     @Column(length = 100, nullable = false)

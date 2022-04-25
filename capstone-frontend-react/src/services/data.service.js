@@ -118,7 +118,6 @@ const createRestaurant = (
   owner,
   currentuser
 ) => {
-  console.log(owner);
   return axios.get(
     API_URL +
       "restaurant/newrestaurant?openTime=" +

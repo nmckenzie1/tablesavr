@@ -24,7 +24,6 @@ const ReservationPage = () => {
   useEffect(() => {
     setLoading(true);
     async function getData() {
-      console.log(resid);
       const reservationData = await DataService.getReservationByID(resid);
 
       const restaurantData = await DataService.getRestaurantByName(
@@ -40,7 +39,6 @@ const ReservationPage = () => {
       });
       setRestaurant({ restaurantName: restaurantName, imageURL: imageURL });
       setLoading(false);
-      console.log(reservation.reservationID);
     }
     getData();
   }, []);

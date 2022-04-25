@@ -78,7 +78,7 @@ public class UserController {
 
     @PostMapping("/user/register")
     public ResponseEntity<?> registerUser(@RequestBody User user, BindingResult result){
-
+        System.out.println(user.getUsername());
         userValidator.validate(user,result);
 
 

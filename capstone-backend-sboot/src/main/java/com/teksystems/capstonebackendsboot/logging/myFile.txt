@@ -1,29 +1,5 @@
-
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
---------------------------------------------------------------------------------------------------------
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
---------------------------------------------------------------------------------------------------------
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
---------------------------------------------------------------------------------------------------------
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
---------------------------------------------------------------------------------------------------------
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
---------------------------------------------------------------------------------------------------------
-Bob does tacos
-Wed Apr 20 00:00:00 CDT 2022
-Reservation for: McKenzie at 09:00:00 for 3
-Reservation for: McKenzie at 12:00:00 for 5
+Erika's Fried Chicken Hut
+Sat Apr 23 00:00:00 CDT 2022
+Reservation for: Johnson at 12:00:00 for 1
+Reservation for: Johnson at 12:00:00 for 4
 --------------------------------------------------------------------------------------------------------

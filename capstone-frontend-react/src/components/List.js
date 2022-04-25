@@ -2,7 +2,6 @@ import React from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const List = ({ items, removeItem }) => {
-  console.log(items);
   return (
     <div className="table-list">
       {items.map((item) => {

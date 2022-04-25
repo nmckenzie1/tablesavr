@@ -20,7 +20,6 @@ const CreateRestaurant = () => {
   };
   const handleRadioChange = (e) => {
     const value = e.target.value;
-    console.log(value);
     setOwner(value);
   };
 
@@ -173,6 +172,7 @@ const CreateRestaurant = () => {
               required
               rows="5"
             ></textarea>
+            <label htmlFor="owner">Admin?</label>
             <label>
               <input
                 className="radio"

@@ -13,7 +13,7 @@ const login = (user) => {
       const decoded = jwtDecode(token);
       localStorage.setItem("userid", decoded.id);
       localStorage.setItem("username", decoded.firstName);
-      console.log(decoded.roles[0].name);
+
       if (decoded.roles[0].name === "ADMIN") {
         localStorage.setItem("isAdmin", true);
         return true;

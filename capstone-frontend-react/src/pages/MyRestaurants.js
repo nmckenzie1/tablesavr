@@ -4,6 +4,7 @@ import AuthService from "../services/auth.service";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Restaurant from "../components/Restaurant";
+import Swal from "sweetalert2";
 const MyRestaurants = () => {
   const navigate = useNavigate();
   const [restaurants, setRestaurants] = useState([]);
@@ -18,7 +19,7 @@ const MyRestaurants = () => {
       if (response.data) {
         if (response.data) {
         }
-        console.log(response);
+
         const newRestaurants = response.data.map((item) => {
           const {
             restaurantID,
@@ -44,7 +45,22 @@ const MyRestaurants = () => {
         return <h2>No Restaurants to display</h2>;
       }
     } catch (error) {
-      alert(error);
+      Swal.fire({
+        text: "No restaurants found! Contact an admin to add your restaurant and start taking reservations!.",
+        icon: "warning",
+        iconColor: "black",
+        toast: true,
+        confirmButtonColor: "#062f4f",
+        showCancelButton: true,
+        cancelButtonColor: "#062f4f",
+        cancelButtonText: "Contact",
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.cancel) {
+          window.open(
+            "mailto:admin@tablesaver.com?subject=Restaurant Addition Request"
+          );
+        }
+      });
       navigate("/restaurant");
     }
   };

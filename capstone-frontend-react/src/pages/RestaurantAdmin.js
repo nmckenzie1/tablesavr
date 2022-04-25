@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import DataService from "../services/data.service";
 import List from "../components/List";
@@ -17,15 +18,17 @@ const RestaurantAdmin = () => {
       maxGuests: maxGuests,
     };
     setList([...list, newItem]);
-    console.log(list);
   };
 
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate("/restaurant");
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const results = await DataService.createTable(maxGuests, tableLabel, rid);
-    console.log(results.data.tableID);
+
     if (results) {
-      console.log(results.data.tableID);
       setTableID(results.data.tableID);
       addItem(results.data.tableID, maxGuests, tableLabel);
     }
@@ -43,7 +46,6 @@ const RestaurantAdmin = () => {
       try {
         const response = await DataService.getTables(rid);
         if (response.data) {
-          console.log(response.data);
           setList(response.data);
         } else {
         }
@@ -93,6 +95,14 @@ const RestaurantAdmin = () => {
           </select>
           <button type="submit" className="btn btn-primary">
             Create Table
+          </button>
+          <span> </span>
+          <button
+            type="submit"
+            onClick={routeChange}
+            className="btn btn-primary"
+          >
+            Done
           </button>
         </div>
       </form>

@@ -13,7 +13,6 @@ const ReservationList = () => {
   useEffect(() => {
     async function getReservations() {
       DataService.getAllReservations(currentuserid).then((response) => {
-        console.log(response.data);
         setReservations(response.data);
       });
     }

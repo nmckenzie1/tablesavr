@@ -20,8 +20,7 @@ const ViewReservations = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(checked);
-    console.log(request.date);
+
     getReservationsByRestaurant();
   };
   const getReservationsByRestaurant = async () => {
@@ -30,7 +29,7 @@ const ViewReservations = () => {
       request.date,
       checked
     );
-    console.log(response);
+
     setReservations(response.data);
   };
 

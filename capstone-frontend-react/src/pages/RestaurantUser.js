@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import DataService from "../services/data.service";
 import AuthService from "../services/auth.service";
 import { useGlobalContext } from "../context";
+import Swal from "sweetalert2";
 let today = new Date();
 today.getDate();
 
@@ -37,22 +38,38 @@ const RestaurantUser = () => {
 
     try {
       const uid = AuthService.getCurrentUser();
-      console.log(uid);
+
       const { amount, time, date } = reservation;
-      console.log(date + "date");
-      const data = DataService.getReservation(id, amount, date, time, uid);
-      console.log(id + " " + amount + " " + time + " " + date + " " + uid);
-      console.log(data);
-      if (data) {
-        alert("Reservation Booked!");
+
+      const data = await DataService.getReservation(
+        id,
+        amount,
+        date,
+        time,
+        uid
+      );
+
+      if (data.status === 201) {
+        Swal.fire({
+          text: data.data,
+          icon: "success",
+          iconColor: "black",
+          toast: true,
+          confirmButtonColor: "#062f4f",
+        });
         setLoading(false);
         navigate("/myreservations");
-      } else {
-        alert("Failed to book reservation please try again");
+      } else if (data.status === 200) {
+        Swal.fire({
+          text: data.data,
+          icon: "warning",
+          iconColor: "black",
+          toast: true,
+          confirmButtonColor: "#062f4f",
+        });
         setLoading(false);
       }
     } catch (error) {
-      console.log(error);
       setLoading(false);
     }
   };
@@ -63,7 +80,7 @@ const RestaurantUser = () => {
     async function getRestaurant() {
       try {
         const response = await DataService.getRestaurantByID(id);
-        console.log(response.data);
+
         if (response.data) {
           setRestaurant(response.data);
         } else {
@@ -71,7 +88,6 @@ const RestaurantUser = () => {
         }
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setLoading(false);
       }
     }
@@ -83,7 +99,6 @@ const RestaurantUser = () => {
   if (!restaurant) {
     return <h2 className="section-title">no restaurant to display</h2>;
   }
-  console.log(restaurant);
 
   const { restaurantName, imageURL, openTime, closeTime, description } =
     restaurant;
@@ -94,7 +109,6 @@ const RestaurantUser = () => {
   let intclose = parseInt(closeTime);
   if (intclose === 0) {
     intclose = 24;
-    console.log(intclose);
   }
   return (
     <section className="reservation reservation-small">

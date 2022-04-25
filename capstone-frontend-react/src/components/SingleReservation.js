@@ -14,7 +14,6 @@ const SingleReservation = ({
     deleteReservation(resid);
   };
   const deleteReservation = async (resid) => {
-    console.log(resid);
     const response = await DataService.deleteReservation(resid);
     navigate("/myreservations");
   };

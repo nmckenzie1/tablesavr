@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 const Register = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -22,7 +23,6 @@ const Register = () => {
     const { username, firstName, lastName, password, confirmPassword } = user;
 
     createNewUser(user);
-    console.log(user);
   };
   const createNewUser = async (user) => {
     try {
@@ -30,26 +30,44 @@ const Register = () => {
         .post(`http://localhost:8080/api/user/register`, user)
         .catch(function (error) {
           if (error.response.data.username) {
-            alert(error.response.data.username);
+            Swal.fire({
+              text: error.response.data.username,
+              icon: "warning",
+              iconColor: "black",
+              toast: true,
+              confirmButtonColor: "#062f4f",
+            });
           } else if (error.response.data.password) {
-            alert(error.response.data.password);
+            Swal.fire({
+              text: error.response.data.password,
+              icon: "warning",
+              iconColor: "black",
+              toast: true,
+              confirmButtonColor: "#062f4f",
+            });
           } else {
-            alert(error.response.data.confirmPassword);
+            Swal.fire({
+              text: error.response.data.confirmPassword,
+              icon: "warning",
+              iconColor: "black",
+              toast: true,
+              confirmButtonColor: "#062f4f",
+            });
           }
 
-          console.log(error.response.data);
-          console.log(error.response.status);
           return;
         })
         .then((res) => {
-          console.log(res);
-          console.log(res.data);
-          alert("Registration Successful! Please Login!");
+          Swal.fire({
+            text: "Registration Successful, please log in!",
+            icon: "success",
+            iconColor: "black",
+            toast: true,
+            confirmButtonColor: "#062f4f",
+          });
           navigate("/login");
         });
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <section className="section">

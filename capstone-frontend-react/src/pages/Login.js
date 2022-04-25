@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 import { useGlobalContext } from "../context";
 
 import AuthService from "../services/auth.service";
@@ -37,7 +37,13 @@ const Login = () => {
         navigate("/");
       }
     } catch (error) {
-      alert("Invalid Credentials, please try again.");
+      Swal.fire({
+        text: "Invalid Credentials, Please Try Again",
+        icon: "warning",
+        iconColor: "black",
+        toast: true,
+        confirmButtonColor: "#062f4f",
+      });
     }
   };
   return (
